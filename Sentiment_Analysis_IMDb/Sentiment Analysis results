@@ -1,0 +1,43 @@
+RUN 1:
+n_jobs : 1
+
+sudo python sentiment_analysis.py
+0%                          100%
+[##############################] | ETA: 00:00:00
+Total time elapsed: 00:01:29
+Fitting 5 folds for each of 48 candidates, totalling 240 fits
+[Parallel(n_jobs=1)]: Done  49 tasks       | elapsed: 12.7min
+[Parallel(n_jobs=1)]: Done 199 tasks       | elapsed: 57.0min
+[Parallel(n_jobs=1)]: Done 240 out of 240 | elapsed: 70.6min finished
+Best parameters set : GridSearchCV(cv=5, error_score='raise',
+       estimator=Pipeline(steps=[('vect', TfidfVectorizer(analyzer=u'word', binary=False, decode_error=u'strict',
+        dtype=<type 'numpy.int64'>, encoding=u'utf-8', input=u'content',
+        lowercase=False, max_df=1.0, max_features=None, min_df=1,
+        ngram_range=(1, 1), norm=u'l2', preprocessor=None, smooth_idf=Tru...nalty='l2', random_state=0, solver='liblinear', tol=0.0001,
+          verbose=0, warm_start=False))]),
+       fit_params={}, iid=True, n_jobs=1,
+       param_grid=[{'vect__ngram_range': [(1, 1)], 'vect__tokenizer': [<function tokenizer at 0x7f1fdcd6fed8>, <function tokenizer_porter at 0x7f1fdcd6ff50>], 'clf__penalty': ['l1', 'l2'], 'clf__C': [1.0, 10.0, 100.0], 'vect__stop_words': [[u'i', u'me', u'my', u'myself', u'we', u'our', u'ours', u'ourselves...1fdcd6ff50>], 'vect__use_idf': [False], 'clf__C': [1.0, 10.0, 100.0], 'clf__penalty': ['l1', 'l2']}],
+       pre_dispatch='2*n_jobs', refit=True, scoring='accuracy', verbose=1)
+Best train Accuracy : 0.889
+Test Accuracy : 0.894
+
+
+RUN 2 :
+n_jobs = -1
+
+/usr/bin/python2.7 /home/naresh/PycharmProjects/MachineLearning/Sentiment_Analysis_IMDb/sentiment_analysis.py
+Fitting 5 folds for each of 48 candidates, totalling 240 fits
+[Parallel(n_jobs=-1)]: Done  42 tasks      | elapsed:  6.5min
+[Parallel(n_jobs=-1)]: Done 192 tasks      | elapsed: 36.3min
+[Parallel(n_jobs=-1)]: Done 240 out of 240 | elapsed: 48.6min finished
+Best parameters set : GridSearchCV(cv=5, error_score='raise',
+       estimator=Pipeline(steps=[('vect', TfidfVectorizer(analyzer=u'word', binary=False, decode_error=u'strict',
+        dtype=<type 'numpy.int64'>, encoding=u'utf-8', input=u'content',
+        lowercase=False, max_df=1.0, max_features=None, min_df=1,
+        ngram_range=(1, 1), norm=u'l2', preprocessor=None, smooth_idf=Tru...nalty='l2', random_state=0, solver='liblinear', tol=0.0001,
+          verbose=0, warm_start=False))]),
+       fit_params={}, iid=True, n_jobs=-1,
+       param_grid=[{'vect__ngram_range': [(1, 1)], 'vect__tokenizer': [<function tokenizer at 0x7fc61b007ed8>, <function tokenizer_porter at 0x7fc61b007f50>], 'clf__penalty': ['l1', 'l2'], 'clf__C': [1.0, 10.0, 100.0], 'vect__stop_words': [[u'i', u'me', u'my', u'myself', u'we', u'our', u'ours', u'ourselves...c61b007f50>], 'vect__use_idf': [False], 'clf__C': [1.0, 10.0, 100.0], 'clf__penalty': ['l1', 'l2']}],
+       pre_dispatch='2*n_jobs', refit=True, scoring='accuracy', verbose=1)
+Best train Accuracy : 0.889
+Test Accuracy : 0.894
